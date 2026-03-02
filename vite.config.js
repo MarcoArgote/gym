@@ -3,13 +3,16 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   build: {
+    outDir: 'dist',
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'animation': ['framer-motion'],
-          'map': ['leaflet', 'react-leaflet']
+          'icons': ['react-icons']
         }
       }
     }
