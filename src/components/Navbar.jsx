@@ -18,7 +18,7 @@ const Navbar = ({ scrolled }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-dark/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        scrolled || isOpen ? 'bg-dark/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 py-3 sm:py-4">
@@ -73,7 +73,7 @@ const Navbar = ({ scrolled }) => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pb-4 overflow-hidden"
+              className="md:hidden mt-4 pb-4 overflow-hidden bg-dark/90 backdrop-blur-md rounded-lg px-4"
             >
               {menuItems.map((item) => (
                 <motion.a
